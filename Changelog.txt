@@ -1,2 +1,2 @@
-1.0.0
+1.0.1
 - first release of BuienradarEU based on the original Buienradar app for NL but with slightly reduced functionality
