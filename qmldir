@@ -1,0 +1,4 @@
+module apps.euBuienradar
+euBuienradarApp 1.0 euBuienradarApp.qml
+euBuienradarDetailsScreen 1.0 euBuienradarDetailsScreen.qml
+euBuienradarStationScreen 1.0 euBuienradarStationScreen.qml
