@@ -1,2 +1,6 @@
+1.0.2
+- pollenradar for BE is now shown properly
+- 24h forecast for BE is now shown properly
+
 1.0.1
 - first release of BuienradarEU based on the original Buienradar app for NL but with slightly reduced functionality

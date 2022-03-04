@@ -117,9 +117,9 @@ Screen {
 			stillRadarImage.visible = false;
 			bigRadarImage.visible = true;
 			if (isNxt) {
-				app.radarimagesurl = "https://api.buienradar.nl/image/1.0/24hourforecastmap" + app.countryCode + "/?nt=0&hist=-1&forc=13&step=0&h=500&w=500";
+				app.radarimagesurl = "https://image.buienradar.nl/2.0/image/Animation/RadarMapRain24HourForecastWebmercator" + app.countryCode + "?extension=gif&width=500&height=500&renderText=True&renderBranding=False&renderBackground=True&history=0&forecast=24&skip=0";
 			} else {
-				app.radarimagesurl = "https://api.buienradar.nl/image/1.0/24hourforecastmap" + app.countryCode + "/?nt=0&hist=-1&forc=13&step=0&h=400&w=400";
+				app.radarimagesurl = "https://image.buienradar.nl/2.0/image/Animation/RadarMapRain24HourForecastWebmercator" + app.countryCode + "?extension=gif&width=400&height=400&renderText=True&renderBranding=False&renderBackground=True&history=0&forecast=24&skip=0";
 			}
 			setTitle("Actuele Buienradar 24 uur vooruit");
 		}
@@ -159,6 +159,7 @@ Screen {
 		onClicked: {
 			stillRadarImage.visible = true;
 			bigRadarImage.visible = false;
+			app.stillimagesurl = "http://toon/";  //resetimage
 			if (isNxt) {
 				app.stillimagesurl = "https://api.buienradar.nl/image/1.0/pollenradar" + app.countryCode + "/gif/?h=500";
 			} else {

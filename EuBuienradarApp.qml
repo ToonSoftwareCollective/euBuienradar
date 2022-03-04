@@ -12,6 +12,7 @@ App {
 	// By making them a URL type property they will automatically be converted to full paths,
 	// preventing problems when passing them around to code that comes from a different path.
 
+
 	//Edit these settings:
 		// default weerstation after cold boot if no saved location exists	
 	property string locationName : "Barcelona";
@@ -58,6 +59,8 @@ App {
 	property string zichtmeters
 	property string datumupdate
 	property string radarimagesurl
+	property string stillimagesurl
+
 	property string radarimagesSmallurl
 	property string zonopkomst
 	property string zononder
