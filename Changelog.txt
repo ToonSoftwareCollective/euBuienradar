@@ -1,3 +1,6 @@
+1.0.3
+- removed automatic brightness setting in dim
+
 1.0.2
 - pollenradar for BE is now shown properly
 - 24h forecast for BE is now shown properly
