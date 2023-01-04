@@ -4,8 +4,8 @@ import qb.components 1.0
 import qb.base 1.0
 
 MenuItem {
-	property EUBuienradarApp app;
-	label: "Buienradar"
+	property EuBuienradarApp app;
+	label: "EU Buienradar"
 	image: "qrc:/tsc/buienradar.png"
 	weight: 200
 

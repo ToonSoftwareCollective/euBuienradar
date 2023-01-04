@@ -28,21 +28,6 @@ Screen {
 		}
 	}
 
-	function saveDimSunDown(text) {
-		if (text) {
-			app.autoDimlevelSunDown = parseInt(text);
-			dimSunDownLabel.inputText = app.autoDimlevelSunDown;
-	   		app.saveSettings();
-		}
-	}
-
-	function saveDimSunUp(text) {
-		if (text) {
-			app.autoDimlevelSunUp = parseInt(text);
-			dimSunUpLabel.inputText = app.autoDimlevelSunUp;
-	   		app.saveSettings();
-		}
-	}
 
 	function validateCoordinate(text, isFinalString) {
 		return null;
@@ -58,10 +43,6 @@ Screen {
 		cityLabel.inputText = app.locationName; 
 		lonLabel.inputText = app.lon;
 		latLabel.inputText = app.lat;
-		dimSunDownLabel.inputText = app.autoDimlevelSunDown;
-		dimSunUpLabel.inputText = app.autoDimlevelSunUp;
-		yaxisLabel.inputText = app.yaxisScale;
-		autoDimToggle.isSwitchedOn = app.autoAdjustDimBrightness ;
 	}
 	
 	onCustomButtonClicked: {
@@ -205,125 +186,4 @@ Screen {
 		}
 	}
 
-	EditTextLabel4421 {
-		id: autoDimLabel
-		width: cityLabel.width
-		height: isNxt ? 44 : 35
-		leftText: "Automatische helderheid dim"
-		leftTextAvailableWidth: cityLabel.width
-		anchors {
-			left: cityLabel.left
-			top: cityLabel.bottom
-			topMargin: 6
-		}
-	}
-
-	OnOffToggle {
-		id: autoDimToggle
-		height: isNxt ? 45 : 36
-		anchors.left: autoDimLabel.right
-		anchors.leftMargin: 10
-		anchors.top: autoDimLabel.top
-		anchors.topMargin: 5
-		leftIsSwitchedOn: false
-		onSelectedChangedByUser: {
-			if (isSwitchedOn) {
-				app.autoAdjustDimBrightness = true
-			} else {
-				app.autoAdjustDimBrightness = false
-			}
-		}
-	}
-
-	EditTextLabel4421 {
-		id: dimSunDownLabel
-		width: isNxt ? 200 : 170
-		height: isNxt ? 45 : 35
-		leftText: "Zon Onder:"
-		leftTextAvailableWidth: isNxt ?  150 : 110
-
-		anchors {
-			left: autoDimToggle.right
-			leftMargin: 10
-			top: autoDimLabel.top
-		}
-
-		onClicked: {
-			qnumKeyboard.open("Helderheid scherm na zonsondergang", dimSunDownLabel.inputText, app.autoDimlevelSunDown, 1 , saveDimSunDown, validateCoordinate);
-		}
-	}
-
-	EditTextLabel4421 {
-		id: dimSunUpLabel
-		width: isNxt ? 200 : 170
-		height: isNxt ? 45 : 35
-		leftText: "Zon Op:"
-		leftTextAvailableWidth: isNxt ?  150 : 110
-
-		anchors {
-			left: dimSunDownLabel.right
-			leftMargin: 10
-			top: autoDimLabel.top
-		}
-
-		onClicked: {
-			qnumKeyboard.open("Helderheid scherm na zonsopgang", dimSunUpLabel.inputText, app.autoDimlevelSunUp, 1 , saveDimSunUp, validateCoordinate);
-		}
-	}
-
-	EditTextLabel4421 {
-		id: yaxisLabel
-		width: lonLabel.width
-		height: isNxt ? 45 : 35
-		leftText: "Schaal grafiek:"
-		leftTextAvailableWidth: isNxt ? 175 : 140
-
-		anchors {
-			left: lonLabel.left
-			top: autoDimLabel.bottom
-			topMargin: 50
-		}
-
-		onClicked: {
-			qnumKeyboard.open("Y-as schaal", yaxisLabel.inputText, app.yaxisScale, 1 , saveYaxis, validateCoordinate);
-		}
-		visible: (app.countryCode !== "EU")
-	}
-
-	IconButton {
-		id: yaxisButton;
-		width: isNxt ? 50 : 40
-		iconSource: "qrc:/tsc/edit.png"
-
-		anchors {
-			left: yaxisLabel.right
-			leftMargin: 6
-			top: cityLabel.bottom
-			topMargin: 50
-		}
-
-		topClickMargin: 3
-		onClicked: {
-			qnumKeyboard.open("Schaal regengrafiek", yaxisLabel.inputText, app.yaxisScale, 1 , saveYaxis, validateCoordinate);
-		}
-		visible: (app.countryCode !== "EU")
-	}
-
-
-	Text {
-		id: uitlegLabel
-		text: "Schaal regengrafiek: voor flexibele schaling op basis\nvan de opgehaalde gegevens voer waarde 0 in."
-       		width: isNxt ? 500 : 400
-        	wrapMode: Text.WordWrap
-		anchors {
-			left: yaxisButton.right
-			leftMargin: 20
-			top: yaxisLabel.top
-		}
-		font {
-			family: qfont.semiBold.name
-			pixelSize: isNxt ? 20 : 16
-		}
-		color: colors.rbTitle
-	}
 }
